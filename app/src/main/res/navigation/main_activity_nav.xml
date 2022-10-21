@@ -26,5 +26,9 @@
         android:id="@+id/detayFragment"
         android:name="com.serapercel.todo.ui.fragment.DetayFragment"
         android:label="fragment_detay"
-        tools:layout="@layout/fragment_detay" />
+        tools:layout="@layout/fragment_detay" >
+        <argument
+            android:name="yapilacakIs"
+            app:argType="com.serapercel.todo.data.entity.YapilacakIs" />
+    </fragment>
 </navigation>

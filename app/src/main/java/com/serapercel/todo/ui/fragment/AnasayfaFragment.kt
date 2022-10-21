@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.serapercel.todo.R
+import com.serapercel.todo.data.entity.YapilacakIs
 import com.serapercel.todo.databinding.FragmentAnasayfaBinding
 
 class AnasayfaFragment : Fragment() {
@@ -23,7 +24,9 @@ class AnasayfaFragment : Fragment() {
         }
 
         binding.button.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.isDetayGecis)
+            val yapilacakIs = YapilacakIs(1, "Yapilacak Isim Yok")
+            val gecis = AnasayfaFragmentDirections.isDetayGecis(yapilacakIs = yapilacakIs)
+            Navigation.findNavController(it).navigate(gecis)
         }
 
         return binding.root
