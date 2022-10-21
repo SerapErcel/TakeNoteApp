@@ -12,8 +12,12 @@ import com.serapercel.todo.R
 import com.serapercel.todo.data.entity.YapilacakIs
 import com.serapercel.todo.databinding.CardItemBinding
 import com.serapercel.todo.ui.fragment.AnasayfaFragmentDirections
+import com.serapercel.todo.ui.viewmodel.AnasayfaViewModel
 
-class YapilacakIsAdapter(var mContext: Context, var isListesi: List<YapilacakIs>) :
+class YapilacakIsAdapter(var mContext: Context,
+                         var isListesi: List<YapilacakIs>,
+                         var viewModel: AnasayfaViewModel
+                         ) :
     RecyclerView.Adapter<YapilacakIsAdapter.CardItemHolder>() {
 
     inner class CardItemHolder(binding: CardItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -51,7 +55,7 @@ class YapilacakIsAdapter(var mContext: Context, var isListesi: List<YapilacakIs>
     }
 
     fun sil(yapilacak_is_id: Int) {
-        Log.e("İş Sil", yapilacak_is_id.toString())
+        viewModel.sil(yapilacak_is_id)
     }
 
     override fun getItemCount(): Int = isListesi.size

@@ -29,13 +29,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:clickable="true"
-            android:onClick="@{() -> anasayfaFragment.fabTikla(floatingActionButton)"
+            android:onClick="@{() -> anasayfaFragment.fabTikla(fab)"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ekle_resim"
             app:layout_constraintBottom_toBottomOf="parent"

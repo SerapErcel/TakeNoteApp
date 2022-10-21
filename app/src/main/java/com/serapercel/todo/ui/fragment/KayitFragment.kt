@@ -7,11 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.serapercel.todo.R
 import com.serapercel.todo.databinding.FragmentKayitBinding
+import com.serapercel.todo.ui.viewmodel.KayitViewModel
 
 class KayitFragment : Fragment() {
     private lateinit var binding: FragmentKayitBinding
+    private lateinit var viewModel: KayitViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -23,8 +26,13 @@ class KayitFragment : Fragment() {
         return binding.root
     }
 
-    fun buttonkaydet(yapilacakIs:String){
-        Log.e("İş Kaydet", yapilacakIs)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val tempViewModel:KayitViewModel by viewModels()
+        viewModel = tempViewModel
     }
 
+    fun buttonkaydet(yapilacakIs:String){
+        viewModel.kaydet(yapilacakIs)
+    }
 }
