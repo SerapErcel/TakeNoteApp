@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.serapercel.todo.R
 import com.serapercel.todo.data.entity.YapilacakIs
 import com.serapercel.todo.databinding.FragmentAnasayfaBinding
+import com.serapercel.todo.ui.adapter.YapilacakIsAdapter
 
 class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentAnasayfaBinding
@@ -24,14 +26,22 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.toolbarAnasayfa.title = "Yapılacaklar"
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbarAnasayfa)
 
+        val isListesi = ArrayList<YapilacakIs>()
+        val is1 = YapilacakIs(1, "İlk İşim")
+        val is2 = YapilacakIs(2, "İkinci İşim")
+        val is3 = YapilacakIs(3, "Üçüncü İşim")
+        isListesi.add(is1)
+        isListesi.add(is2)
+        isListesi.add(is3)
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        val adapter = YapilacakIsAdapter(requireContext(), isListesi)
+        binding.recyclerView.adapter = adapter
+
+
         binding.floatingActionButton.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.isKayitGecis)
-        }
-
-        binding.button.setOnClickListener {
-            val yapilacakIs = YapilacakIs(1, "Yapilacak Isim Yok")
-            val gecis = AnasayfaFragmentDirections.isDetayGecis(yapilacakIs = yapilacakIs)
-            Navigation.findNavController(it).navigate(gecis)
         }
 
         requireActivity().addMenuProvider(object: MenuProvider{
