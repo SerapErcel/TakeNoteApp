@@ -7,6 +7,10 @@ android {
     namespace 'com.serapercel.todo'
     compileSdk 32
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId "com.serapercel.todo"
         minSdk 21
@@ -31,6 +35,8 @@ android {
         jvmTarget = '1.8'
     }
 }
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 dependencies {
 
