@@ -11,7 +11,9 @@ import androidx.fragment.app.viewModels
 import com.serapercel.todo.R
 import com.serapercel.todo.databinding.FragmentKayitBinding
 import com.serapercel.todo.ui.viewmodel.KayitViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class KayitFragment : Fragment() {
     private lateinit var binding: FragmentKayitBinding
     private lateinit var viewModel: KayitViewModel

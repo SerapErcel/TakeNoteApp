@@ -39,6 +39,7 @@ android {
 
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'kotlin-kapt'
+apply plugin: "dagger.hilt.android.plugin"
 
 dependencies {
 
@@ -57,4 +58,9 @@ dependencies {
 
     implementation "androidx.lifecycle:lifecycle-livedata:2.5.1"
     kapt "androidx.lifecycle:lifecycle-compiler:2.5.1"
+
+    implementation "com.google.dagger:hilt-android:2.42"
+    kapt "com.google.dagger:hilt-android-compiler:2.42"
+
+
 }

@@ -16,7 +16,9 @@ import com.serapercel.todo.data.entity.YapilacakIs
 import com.serapercel.todo.databinding.FragmentAnasayfaBinding
 import com.serapercel.todo.ui.adapter.YapilacakIsAdapter
 import com.serapercel.todo.ui.viewmodel.AnasayfaViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentAnasayfaBinding
     private lateinit var viewModel: AnasayfaViewModel

@@ -3,8 +3,7 @@ package com.serapercel.todo.data.repo
 import com.serapercel.todo.data.datasource.YapilacakIsDataSource
 import com.serapercel.todo.data.entity.YapilacakIs
 
-class YapilacakIsRepository {
-    var yids = YapilacakIsDataSource()
+class YapilacakIsRepository(var yids:YapilacakIsDataSource) {
 
     suspend fun kaydet(yapilacakIs:String) = yids.kaydet(yapilacakIs)
 

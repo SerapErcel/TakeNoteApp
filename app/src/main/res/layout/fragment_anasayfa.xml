@@ -35,7 +35,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:clickable="true"
-            android:onClick="@{() -> anasayfaFragment.fabTikla(fab)"
+            android:onClick="@{() -> anasayfaFragment.fabTikla(fab)}"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ekle_resim"
             app:layout_constraintBottom_toBottomOf="parent"

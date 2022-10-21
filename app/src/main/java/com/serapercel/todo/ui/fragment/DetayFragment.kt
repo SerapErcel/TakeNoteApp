@@ -12,7 +12,9 @@ import androidx.navigation.fragment.navArgs
 import com.serapercel.todo.R
 import com.serapercel.todo.databinding.FragmentDetayBinding
 import com.serapercel.todo.ui.viewmodel.DetayViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetayFragment : Fragment() {
     private lateinit var binding: FragmentDetayBinding
     private lateinit var viewModel: DetayViewModel
