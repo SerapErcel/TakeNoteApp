@@ -2,10 +2,11 @@ package com.serapercel.todo.data.datasource
 
 import android.util.Log
 import com.serapercel.todo.data.entity.YapilacakIs
+import com.serapercel.todo.room.YapilacakIslerDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class YapilacakIsDataSource {
+class YapilacakIsDataSource(var yidao: YapilacakIslerDao) {
 
     suspend fun kaydet(yapilacakIs:String){
         Log.e("İş Kaydet", yapilacakIs)
@@ -16,15 +17,7 @@ class YapilacakIsDataSource {
 
     suspend fun isleriYukle() : List<YapilacakIs> =
         withContext(Dispatchers.IO){
-            val isListesi = ArrayList<YapilacakIs>()
-            val is1 = YapilacakIs(1, "İlk İşim")
-            val is2 = YapilacakIs(2, "İkinci İşim")
-            val is3 = YapilacakIs(3, "Üçüncü İşim")
-            isListesi.add(is1)
-            isListesi.add(is2)
-            isListesi.add(is3)
-
-            return@withContext isListesi
+            yidao.isleriYukle()
         }
 
     suspend fun ara(aramaKelimesi: String) : List<YapilacakIs> =
