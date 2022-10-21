@@ -3,14 +3,13 @@ package com.serapercel.todo.ui.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.core.view.MenuProvider
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.serapercel.todo.R
 import com.serapercel.todo.data.entity.YapilacakIs
 import com.serapercel.todo.databinding.FragmentAnasayfaBinding
@@ -21,9 +20,9 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentAnasayfaBinding.inflate(inflater, container, false)
-
-        binding.toolbarAnasayfa.title = "Yapılacaklar"
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_anasayfa, container, false)
+        binding.anasayfaFragment = this
+        binding.anasayfaToolbarBaslik = "Yapılacaklar"
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbarAnasayfa)
 
         val isListesi = ArrayList<YapilacakIs>()
@@ -34,15 +33,8 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
         isListesi.add(is2)
         isListesi.add(is3)
 
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
         val adapter = YapilacakIsAdapter(requireContext(), isListesi)
-        binding.recyclerView.adapter = adapter
-
-
-        binding.floatingActionButton.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.isKayitGecis)
-        }
+        binding.adapter = adapter
 
         requireActivity().addMenuProvider(object: MenuProvider{
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
@@ -59,6 +51,9 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         return binding.root
+    }
+    fun fabTikla(view: View){
+        Navigation.findNavController(view).navigate(R.id.isKayitGecis)
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {

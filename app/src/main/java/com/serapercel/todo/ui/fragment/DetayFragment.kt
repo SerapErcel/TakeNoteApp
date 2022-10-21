@@ -6,8 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
-import com.serapercel.todo.data.entity.YapilacakIs
+import com.serapercel.todo.R
 import com.serapercel.todo.databinding.FragmentDetayBinding
 
 class DetayFragment : Fragment() {
@@ -15,24 +16,19 @@ class DetayFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentDetayBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detay, container, false)
+        binding.detayFragment = this
 
-        binding.toolbarDetay.title = "Yapılacak İş Detay"
+        binding.detayToolbarBaslik = "Yapılacak İş Detay"
 
         val bundle:DetayFragmentArgs by navArgs()
         val gelenIs = bundle.yapilacakIs
-
-        binding.editTextYapilacakIs.setText(gelenIs.yapilacak_is)
-
-        binding.buttonGuncelle.setOnClickListener {
-            val yapilacakIs = binding.editTextYapilacakIs.text.toString()
-            guncelle(gelenIs.yapilacak_is_id, yapilacakIs)
-        }
+        binding.isNesnesi = gelenIs
 
         return binding.root
     }
 
-    fun guncelle(yapilacak_is_id:Int, yapilacak_is: String){
+    fun buttonGuncelle(yapilacak_is_id:Int, yapilacak_is: String){
         Log.e("İş Güncelle", "$yapilacak_is_id - $yapilacak_is")
     }
 }

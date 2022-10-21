@@ -5,10 +5,11 @@ plugins {
 
 android {
     namespace 'com.serapercel.todo'
-    compileSdk 32
+    compileSdk 33
 
     buildFeatures {
         viewBinding = true
+        dataBinding true
     }
 
     defaultConfig {
@@ -37,6 +38,7 @@ android {
 }
 
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'kotlin-kapt'
 
 dependencies {
 
@@ -49,4 +51,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1"
+    implementation "androidx.activity:activity-ktx:1.6.0"
+
+    implementation "androidx.lifecycle:lifecycle-livedata:2.5.1"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.5.1"
 }
