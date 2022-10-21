@@ -16,6 +16,7 @@ import com.serapercel.todo.data.entity.YapilacakIs
 import com.serapercel.todo.databinding.FragmentAnasayfaBinding
 import com.serapercel.todo.ui.adapter.YapilacakIsAdapter
 import com.serapercel.todo.ui.viewmodel.AnasayfaViewModel
+import com.serapercel.todo.utils.gecisYap
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -59,7 +60,7 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     fun fabTikla(view: View){
-        Navigation.findNavController(view).navigate(R.id.isKayitGecis)
+        Navigation.gecisYap(view, R.id.isKayitGecis)
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {

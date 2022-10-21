@@ -13,6 +13,7 @@ import com.serapercel.todo.data.entity.YapilacakIs
 import com.serapercel.todo.databinding.CardItemBinding
 import com.serapercel.todo.ui.fragment.AnasayfaFragmentDirections
 import com.serapercel.todo.ui.viewmodel.AnasayfaViewModel
+import com.serapercel.todo.utils.gecisYap
 
 class YapilacakIsAdapter(var mContext: Context,
                          var isListesi: List<YapilacakIs>,
@@ -43,7 +44,7 @@ class YapilacakIsAdapter(var mContext: Context,
 
         binding.isCard.setOnClickListener {
             val gecis = AnasayfaFragmentDirections.isDetayGecis(yapilacakIs = yapilacakIs)
-            Navigation.findNavController(it).navigate(gecis)
+            Navigation.gecisYap(it, gecis)
         }
 
         binding.imageViewSil.setOnClickListener {
