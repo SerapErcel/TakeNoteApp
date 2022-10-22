@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.serapercel.todo.R
 import com.serapercel.todo.databinding.FragmentDetayBinding
 import com.serapercel.todo.ui.viewmodel.DetayViewModel
+import com.serapercel.todo.utils.gecisYap
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,5 +42,6 @@ class DetayFragment : Fragment() {
 
     fun buttonGuncelle(yapilacak_is_id: Int, yapilacak_is: String) {
         viewModel.guncelle(yapilacak_is_id, yapilacak_is)
+        Navigation.gecisYap(binding.buttonGuncelle,R.id.detayAnasayfaGecis)
     }
 }

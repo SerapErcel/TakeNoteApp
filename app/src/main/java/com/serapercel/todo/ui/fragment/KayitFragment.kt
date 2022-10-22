@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.serapercel.todo.R
 import com.serapercel.todo.databinding.FragmentKayitBinding
 import com.serapercel.todo.ui.viewmodel.KayitViewModel
+import com.serapercel.todo.utils.gecisYap
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,5 +37,6 @@ class KayitFragment : Fragment() {
 
     fun buttonkaydet(yapilacakIs:String){
         viewModel.kaydet(yapilacakIs)
+        Navigation.gecisYap(binding.buttonKaydet,R.id.kayitAnasayfaGecis)
     }
 }

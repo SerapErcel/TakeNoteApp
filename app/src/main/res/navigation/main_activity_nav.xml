@@ -21,7 +21,11 @@
         android:id="@+id/kayitFragment"
         android:name="com.serapercel.todo.ui.fragment.KayitFragment"
         android:label="fragment_kayit"
-        tools:layout="@layout/fragment_kayit" />
+        tools:layout="@layout/fragment_kayit" >
+        <action
+            android:id="@+id/kayitAnasayfaGecis"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detayFragment"
         android:name="com.serapercel.todo.ui.fragment.DetayFragment"
@@ -30,5 +34,8 @@
         <argument
             android:name="yapilacakIs"
             app:argType="com.serapercel.todo.data.entity.YapilacakIs" />
+        <action
+            android:id="@+id/detayAnasayfaGecis"
+            app:destination="@id/anasayfaFragment" />
     </fragment>
 </navigation>
