@@ -76,9 +76,11 @@
             android:layout_marginBottom="16dp"
             android:clickable="true"
             android:contentDescription="@string/app_name"
+            android:focusable="true"
             android:onClick="@{() -> anasayfaFragment.fabTikla(fab)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ekle_resim" />
+            app:srcCompat="@drawable/ekle_resim"
+            tools:ignore="ImageContrastCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
