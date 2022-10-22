@@ -41,6 +41,7 @@ class YapilacakIsAdapter(var mContext: Context,
         val yapilacakIs = isListesi[position]
         val binding = holder.binding
         binding.isNesnesi = yapilacakIs
+        binding.isText = notGoster(yapilacakIs)
 
         binding.isCard.setOnClickListener {
             val gecis = AnasayfaFragmentDirections.isDetayGecis(yapilacakIs = yapilacakIs)
@@ -53,6 +54,12 @@ class YapilacakIsAdapter(var mContext: Context,
                     sil(yapilacakIs.yapilacak_is_id)
                 }.show()
         }
+    }
+
+    fun notGoster(yapilacakIs: YapilacakIs) : String{
+        return if (yapilacakIs.yapilacak_is.length > 30)
+            yapilacakIs.yapilacak_is.substring(0,30)+" ..."
+        else yapilacakIs.yapilacak_is
     }
 
     fun sil(yapilacak_is_id: Int) {

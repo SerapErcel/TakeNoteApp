@@ -4,65 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="detayToolbarBaslik" type="String" />
-        <variable name="detayFragment" type="com.serapercel.todo.ui.fragment.DetayFragment" />
-        <variable name="isNesnesi" type="com.serapercel.todo.data.entity.YapilacakIs" />
+
+        <variable
+            name="detayToolbarBaslik"
+            type="String" />
+
+        <variable
+            name="detayFragment"
+            type="com.serapercel.todo.ui.fragment.DetayFragment" />
+
+        <variable
+            name="isNesnesi"
+            type="com.serapercel.todo.data.entity.YapilacakIs" />
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.fragment.DetayFragment">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarDetay"
-            app:title="@{detayToolbarBaslik}"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarDetay">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextYapilacakIs"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarDetay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{isNesnesi.yapilacak_is}"
-                android:hint="@string/yapilacak_is"
-                android:textColorHint="#616161"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:title="@{detayToolbarBaslik}" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="128dp"
+                android:layout_marginEnd="32dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextYapilacakIs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/yapilacak_is"
+                    android:text="@{isNesnesi.yapilacak_is}"
+                    android:textColorHint="#616161"
+                    tools:ignore="TextContrastCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonGuncelle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="64dp"
+                android:layout_marginBottom="64dp"
+                android:onClick="@{() -> detayFragment.buttonGuncelle(isNesnesi.yapilacak_is_id, editTextYapilacakIs.getText().toString())}"
+                android:text="@string/guncelle"
                 tools:ignore="TextContrastCheck" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/buttonGuncelle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="64dp"
-            android:text="@string/guncelle"
-            android:onClick="@{() -> detayFragment.buttonGuncelle(isNesnesi.yapilacak_is_id, editTextYapilacakIs.getText().toString())}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-            tools:ignore="TextContrastCheck" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 </layout>

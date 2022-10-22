@@ -5,6 +5,7 @@
 
     <data>
         <variable name="isNesnesi" type="com.serapercel.todo.data.entity.YapilacakIs" />
+        <variable name="isText" type="String" />
 
     </data>
 
@@ -28,7 +29,8 @@
                     android:id="@+id/textViewYapilacakIs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{isNesnesi.yapilacak_is}"
+                    android:padding="5dp"
+                    android:text="@{isText}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
