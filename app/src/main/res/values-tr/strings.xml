@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TakeNote</string>
+    <string name="yapilacak_is">Notlar</string>
+    <string name="kaydet">Kaydet</string>
+    <string name="guncelle">Güncelle</string>
+    <string name="ara">Ara</string>
+    <string name="sil">Sil</string>
+    <string name="yapilacaklar">Notlar</string>
+    <string name="yapilacak_is_detay">Not Detay</string>
+    <string name="yapilacak_is_kayit">Yeni Not</string>
+
+</resources>

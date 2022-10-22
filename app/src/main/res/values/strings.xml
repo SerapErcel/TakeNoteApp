@@ -1,8 +1,12 @@
 <resources>
-    <string name="app_name">ToDo</string>
-    <string name="yapilacak_is">Yapılacak İş</string>
-    <string name="kaydet">Kaydet</string>
-    <string name="guncelle">Güncelle</string>
-    <string name="ara">Ara</string>
-    <string name="sil">sil</string>
+    <string name="app_name">TakeNote</string>
+    <string name="yapilacak_is">To Do</string>
+    <string name="kaydet">Save</string>
+    <string name="guncelle">Update</string>
+    <string name="ara">Search</string>
+    <string name="sil">Delete</string>
+    <string name="yapilacaklar">Notes</string>
+    <string name="yapilacak_is_detay">Note Detail</string>
+    <string name="yapilacak_is_kayit">New Note</string>
+
 </resources>

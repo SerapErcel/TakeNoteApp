@@ -26,7 +26,7 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_anasayfa, container, false)
         binding.anasayfaFragment = this
-        binding.anasayfaToolbarBaslik = "Yapılacaklar"
+        binding.anasayfaToolbarBaslik = getString(R.string.yapilacaklar)
         (activity as AppCompatActivity).setSupportActionBar(binding.toolbarAnasayfa)
 
         viewModel.isListesi.observe(viewLifecycleOwner){
