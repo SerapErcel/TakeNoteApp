@@ -1,7 +1,6 @@
 package com.serapercel.todo.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -12,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
 import com.serapercel.todo.R
-import com.serapercel.todo.data.entity.YapilacakIs
 import com.serapercel.todo.databinding.FragmentAnasayfaBinding
 import com.serapercel.todo.ui.adapter.YapilacakIsAdapter
 import com.serapercel.todo.ui.viewmodel.AnasayfaViewModel
@@ -25,7 +23,7 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var viewModel: AnasayfaViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_anasayfa, container, false)
         binding.anasayfaFragment = this
         binding.anasayfaToolbarBaslik = "Yapılacaklar"
@@ -71,6 +69,11 @@ class AnasayfaFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onQueryTextChange(newText: String): Boolean {
         viewModel.ara(newText)
         return true
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.isleriYukle()
     }
 
 }

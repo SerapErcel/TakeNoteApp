@@ -33,6 +33,7 @@ class AnasayfaViewModel @Inject constructor(var yirepo: YapilacakIsRepository) :
     fun sil(yapilacak_is_id: Int) {
         CoroutineScope(Dispatchers.Main).launch {
             yirepo.sil(yapilacak_is_id)
+            isleriYukle()
         }
     }
 }
