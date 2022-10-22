@@ -4,22 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="anasayfaToolbarBaslik" type="String" />
-        <variable name="anasayfaFragment" type="com.serapercel.todo.ui.fragment.AnasayfaFragment" />
-        <variable name="isNesnesi" type="com.serapercel.todo.data.entity.YapilacakIs" />
-        <variable name="adapter" type="com.serapercel.todo.ui.adapter.YapilacakIsAdapter" />
+
+        <variable
+            name="anasayfaToolbarBaslik"
+            type="String" />
+
+        <variable
+            name="anasayfaFragment"
+            type="com.serapercel.todo.ui.fragment.AnasayfaFragment" />
+
+        <variable
+            name="isNesnesi"
+            type="com.serapercel.todo.data.entity.YapilacakIs" />
+
+        <variable
+            name="adapter"
+            type="com.serapercel.todo.ui.adapter.YapilacakIsAdapter" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.fragment.AnasayfaFragment">
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarAnasayfa"
             app:title="@{anasayfaToolbarBaslik}"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
@@ -28,6 +39,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ScrollView
+            android:id="@+id/scrollViewAnasayfa"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:context=".ui.fragment.AnasayfaFragment">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adapter="@{adapter}"
+                    android:paddingBottom="100dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </ScrollView>
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
@@ -35,23 +75,12 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:clickable="true"
-            android:onClick="@{() -> anasayfaFragment.fabTikla(fab)}"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ekle_resim"
+            android:focusable="true"
+            android:onClick="@{() -> anasayfaFragment.fabTikla(fab)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ekle_resim"
             tools:ignore="ImageContrastCheck" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:adapter="@{adapter}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarAnasayfa"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
